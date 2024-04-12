@@ -141,87 +141,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Applying the fix here:
   var gui = new dat.GUI({
-    load: {
-      remembered: {
-        "General 1": [{
-          n_colors_on: 3,
-          n_colors_off: 6,
-          color_on0: '#F9BB82',
-          color_on1: '#EBA170',
-          color_on2: '#FCCD84',
-          color_off0: '#9CA594',
-          color_off1: '#ACB4A5',
-          color_off2: '#BBB964',
-          color_off3: '#D7DAAA',
-          color_off4: '#E5D57D',
-          color_off5: '#D1D6AF'
-        }],
-        'General 2': [{
-          n_colors_on: 5,
-          n_colors_off: 4,
-          color_on0: '#89B270',
-          color_on1: '#7AA45E',
-          color_on2: '#B6C674',
-          color_on3: '#7AA45E',
-          color_on4: '#B6C674',
-          color_off0: '#F49427',
-          color_off1: '#C9785D',
-          color_off2: '#E88C6A',
-          color_off3: '#F1B081'
-        }],
-        'General 3': [{
-          n_colors_on: 6,
-          n_colors_off: 5,
-          color_on0: '#89B270',
-          color_on1: '#7AA45E',
-          color_on2: '#B6C674',
-          color_on3: '#7AA45E',
-          color_on4: '#B6C674',
-          color_on5: '#FECB05',
-          color_off0: '#F49427',
-          color_off1: '#C9785D',
-          color_off2: '#E88C6A',
-          color_off3: '#F1B081',
-          color_off4: '#FFCE00'
-        }],
-        'Protanopia': [{
-          n_colors_on: 2,
-          n_colors_off: 3,
-          color_on0: '#E96B6C',
-          color_on1: '#F7989C',
-          color_off0: '#635A4A',
-          color_off1: '#817865',
-          color_off2: '#9C9C84'
-        }],
-        'Protanomaly': [{
-          n_colors_on: 2,
-          n_colors_off: 3,
-          color_on0: '#AD5277',
-          color_on1: '#F7989C',
-          color_off0: '#635A4A',
-          color_off1: '#817865',
-          color_off2: '#9C9C84'
-        }],
-        'Viewable by all': [{
-          n_colors_on: 1,
-          n_colors_off: 1,
-          color_on0: '#FF934F',
-          color_off1: '#9C9C9C'
-        }],
-        'Colorblind only': [{
-          n_colors_on: 2,
-          n_colors_off: 5,
-          color_on0: '#A8AA00',
-          color_on1: '#83BE28',
-          color_off0: '#828200',
-          color_off1: '#669A1B',
-          color_off2: '#828200',
-          color_off3: '#669A1B',
-          color_off4: '#ED6311'
-        }]
-      }
-    }
+    closed: false, // Make sure the GUI is open by default
+    autoPlace: false, // Disable auto placement
+    width: 400 // Set a wider width for the GUI
   });
 
   gui.remember(ishihara_input);
