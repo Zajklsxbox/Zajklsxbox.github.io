@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   function set_colors_folders() {
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < 10; i++) {
       hide_gui_element(colors_on_folder, 'color_on' + i, i >= ishihara_input.n_colors_on);
       hide_gui_element(colors_off_folder, 'color_off' + i, i >= ishihara_input.n_colors_off);
     }
