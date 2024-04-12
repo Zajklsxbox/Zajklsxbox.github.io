@@ -242,16 +242,16 @@ document.addEventListener('DOMContentLoaded', function() {
   }).name("Shape");
   gui.add(ishihara_input, 'sides', 3, 12, 1).name("Sides");
   gui.add(ishihara_input, 'pointiness', 0.01, 0.99).name("Pointiness");
-  gui.add(ishihara_input, 'n_colors_on', 1, 6, 1).name("Colors on").onChange(function() {
+  gui.add(ishihara_input, 'n_colors_on', 1, 10, 1).name("Colors on").onChange(function() {
     set_colors_folders();
   });
-  gui.add(ishihara_input, 'n_colors_off', 1, 6, 1).name("Colors off").onChange(function() {
+  gui.add(ishihara_input, 'n_colors_off', 1, 10, 1).name("Colors off").onChange(function() {
     set_colors_folders();
   });
 
   var colors_on_folder = gui.addFolder('Colors on');
   var colors_off_folder = gui.addFolder('Colors off');
-  for (var i = 0; i < 6; i++) {
+  for (var i = 0; i < 10; i++) {
     colors_on_folder.addColor(ishihara_input, 'color_on' + i).name(i + 1);
     colors_off_folder.addColor(ishihara_input, 'color_off' + i).name(i + 1);
   }
