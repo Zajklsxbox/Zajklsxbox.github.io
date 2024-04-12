@@ -45,18 +45,22 @@ document.addEventListener('DOMContentLoaded', function() {
     color_on0: '#F9BB82',
     color_on1: '#EBA170',
     color_on2: '#FCCD84',
-    color_on3: '#000000', // Added color_on3
-    color_on4: '#000000', // Added color_on4
-    color_on5: '#000000', // Added color_on5
-    // ... (add color_on6 to color_on9 here) ... 
+    color_on3: '#000000', 
+    color_on4: '#000000', 
+    color_on5: '#000000', 
+    color_on6: '#000000', 
+    color_on7: '#000000', 
+    color_on8: '#000000', 
     color_on9: '#000000', 
     color_off0: '#9CA594',
     color_off1: '#ACB4A5',
     color_off2: '#BBB964',
-    color_off3: '#D7DAAA', // Added color_off3
-    color_off4: '#E5D57D', // Added color_off4
-    color_off5: '#D1D6AF', // Added color_off5 
-    // ... (add color_off6 to color_off9 here) ...
+    color_off3: '#D7DAAA', 
+    color_off4: '#E5D57D', 
+    color_off5: '#D1D6AF', 
+    color_off6: '#D1D6AF',
+    color_off7: '#D1D6AF',
+    color_off8: '#D1D6AF',
     color_off9: '#D1D6AF',
     min_radius: (canvas.width + canvas.height) / 600,
     max_radius: (canvas.width + canvas.height) / 150,
@@ -143,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   function set_colors_folders() {
-    for (var i = 0; i < 10; i++) { // Updated loop to iterate up to 10
+    for (var i = 0; i < 10; i++) { 
       hide_gui_element(colors_on_folder, 'color_on' + i, i >= ishihara_input.n_colors_on);
       hide_gui_element(colors_off_folder, 'color_off' + i, i >= ishihara_input.n_colors_off);
     }
@@ -246,16 +250,16 @@ document.addEventListener('DOMContentLoaded', function() {
   }).name("Shape");
   gui.add(ishihara_input, 'sides', 3, 12, 1).name("Sides");
   gui.add(ishihara_input, 'pointiness', 0.01, 0.99).name("Pointiness");
-  gui.add(ishihara_input, 'n_colors_on', 1, 10, 1).name("Colors on").onChange(function() { // Updated range
+  gui.add(ishihara_input, 'n_colors_on', 1, 10, 1).name("Colors on").onChange(function() { 
     set_colors_folders();
   });
-  gui.add(ishihara_input, 'n_colors_off', 1, 10, 1).name("Colors off").onChange(function() { // Updated range
+  gui.add(ishihara_input, 'n_colors_off', 1, 10, 1).name("Colors off").onChange(function() { 
     set_colors_folders();
   });
 
   var colors_on_folder = gui.addFolder('Colors on');
   var colors_off_folder = gui.addFolder('Colors off');
-  for (var i = 0; i < 10; i++) { // Updated loop to create more color folders
+  for (var i = 0; i < 10; i++) { 
     colors_on_folder.addColor(ishihara_input, 'color_on' + i).name(i + 1);
     colors_off_folder.addColor(ishihara_input, 'color_off' + i).name(i + 1);
   }
