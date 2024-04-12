@@ -45,13 +45,25 @@ document.addEventListener('DOMContentLoaded', function() {
     color_on0: '#F9BB82',
     color_on1: '#EBA170',
     color_on2: '#FCCD84', 
-    // ... (Add color_on3 to color_on99 here, each with its own default color) ...
-    color_on99: '#000000', 
+    color_on3: '#000000', 
+    color_on4: '#000000', 
+    color_on5: '#000000', 
+    color_on6: '#000000', 
+    color_on7: '#000000', 
+    color_on8: '#000000', 
+    color_on9: '#000000', 
     color_off0: '#9CA594',
     color_off1: '#ACB4A5',
     color_off2: '#BBB964',
-    // ... (Add color_off3 to color_off99 here, each with its own default color) ...
-    color_off99: '#D1D6AF', 
+    color_off3: '#D7DAAA', 
+    color_off4: '#E5D57D', 
+    color_off5: '#D1D6AF', 
+    color_off6: '#D1D6AF',
+    color_off7: '#D1D6AF',
+    color_off8: '#D1D6AF',
+    color_off9: '#D1D6AF',
+    // ... (Add color_on10 to color_on99 and color_off10 to color_off99 here, 
+    // each with its own default color) ...
     min_radius: (canvas.width + canvas.height) / 600,
     max_radius: (canvas.width + canvas.height) / 150,
     draw_ratio: 1,
@@ -127,9 +139,11 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     download_svg: function() {
       var data = [
-        '', 
-        ''
-      ].join('\n');
+        '<?xml version="1.0" encoding="UTF-8" ?>',
+        '<svg width="' + canvas.width + '" height="' + canvas.height + '" ' +
+        'viewBox="0 0 ' + canvas.width + ' ' + canvas.height + '" ' +
+        'xmlns="http://www.w3.org/2000/svg" version="1.1">'
+      ].concat(svg_elements, '</svg>').join('\n');
       download('ishihara.svg', 'data:image/svg+xml,' + encodeURIComponent(data));
     }
   };
