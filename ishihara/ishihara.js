@@ -141,11 +141,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Applying the fix here:
   var gui = new dat.GUI({
-    closed: false, // Make sure the GUI is open by default
-    autoPlace: false, // Disable auto placement
-    width: 400 // Set a wider width for the GUI
+    closed: false, 
+    autoPlace: false, 
+    width: 400 
   });
 
   gui.remember(ishihara_input);
