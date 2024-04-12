@@ -45,25 +45,13 @@ document.addEventListener('DOMContentLoaded', function() {
     color_on0: '#F9BB82',
     color_on1: '#EBA170',
     color_on2: '#FCCD84', 
-    color_on3: '#000000', 
-    color_on4: '#000000', 
-    color_on5: '#000000', 
-    color_on6: '#000000', 
-    color_on7: '#000000', 
-    color_on8: '#000000', 
-    color_on9: '#000000', 
+    // ... (Add color_on3 to color_on99 here, each with its own default color) ...
+    color_on99: '#000000', 
     color_off0: '#9CA594',
     color_off1: '#ACB4A5',
     color_off2: '#BBB964',
-    color_off3: '#D7DAAA', 
-    color_off4: '#E5D57D', 
-    color_off5: '#D1D6AF', 
-    color_off6: '#D1D6AF',
-    color_off7: '#D1D6AF',
-    color_off8: '#D1D6AF',
-    color_off9: '#D1D6AF',
-    // ... (Add color_on10 to color_on99 and color_off10 to color_off99 here, 
-    // each with its own default color) ...
+    // ... (Add color_off3 to color_off99 here, each with its own default color) ...
+    color_off99: '#D1D6AF', 
     min_radius: (canvas.width + canvas.height) / 600,
     max_radius: (canvas.width + canvas.height) / 150,
     draw_ratio: 1,
@@ -139,11 +127,9 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     download_svg: function() {
       var data = [
-        '<?xml version="1.0" encoding="UTF-8" ?>',
-        '<svg width="' + canvas.width + '" height="' + canvas.height + '" ' +
-        'viewBox="0 0 ' + canvas.width + ' ' + canvas.height + '" ' +
-        'xmlns="http://www.w3.org/2000/svg" version="1.1">'
-      ].concat(svg_elements, '</svg>').join('\n');
+        '', 
+        ''
+      ].join('\n');
       download('ishihara.svg', 'data:image/svg+xml,' + encodeURIComponent(data));
     }
   };
@@ -156,9 +142,86 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   var gui = new dat.GUI({
-    closed: false, 
-    autoPlace: false, 
-    width: 400 
+    load: {
+      remembered: {
+        "General 1": [{
+          n_colors_on: 3,
+          n_colors_off: 6,
+          color_on0: '#F9BB82',
+          color_on1: '#EBA170',
+          color_on2: '#FCCD84',
+          color_off0: '#9CA594',
+          color_off1: '#ACB4A5',
+          color_off2: '#BBB964',
+          color_off3: '#D7DAAA',
+          color_off4: '#E5D57D',
+          color_off5: '#D1D6AF'
+        }],
+        'General 2': [{
+          n_colors_on: 5,
+          n_colors_off: 4,
+          color_on0: '#89B270',
+          color_on1: '#7AA45E',
+          color_on2: '#B6C674',
+          color_on3: '#7AA45E',
+          color_on4: '#B6C674',
+          color_off0: '#F49427',
+          color_off1: '#C9785D',
+          color_off2: '#E88C6A',
+          color_off3: '#F1B081'
+        }],
+        'General 3': [{
+          n_colors_on: 6,
+          n_colors_off: 5,
+          color_on0: '#89B270',
+          color_on1: '#7AA45E',
+          color_on2: '#B6C674',
+          color_on3: '#7AA45E',
+          color_on4: '#B6C674',
+          color_on5: '#FECB05',
+          color_off0: '#F49427',
+          color_off1: '#C9785D',
+          color_off2: '#E88C6A',
+          color_off3: '#F1B081',
+          color_off4: '#FFCE00'
+        }],
+        'Protanopia': [{
+          n_colors_on: 2,
+          n_colors_off: 3,
+          color_on0: '#E96B6C',
+          color_on1: '#F7989C',
+          color_off0: '#635A4A',
+          color_off1: '#817865',
+          color_off2: '#9C9C84'
+        }],
+        'Protanomaly': [{
+          n_colors_on: 2,
+          n_colors_off: 3,
+          color_on0: '#AD5277',
+          color_on1: '#F7989C',
+          color_off0: '#635A4A',
+          color_off1: '#817865',
+          color_off2: '#9C9C84'
+        }],
+        'Viewable by all': [{
+          n_colors_on: 1,
+          n_colors_off: 1,
+          color_on0: '#FF934F',
+          color_off1: '#9C9C9C'
+        }],
+        'Colorblind only': [{
+          n_colors_on: 2,
+          n_colors_off: 5,
+          color_on0: '#A8AA00',
+          color_on1: '#83BE28',
+          color_off0: '#828200',
+          color_off1: '#669A1B',
+          color_off2: '#828200',
+          color_off3: '#669A1B',
+          color_off4: '#ED6311'
+        }]
+      }
+    }
   });
 
   gui.remember(ishihara_input);
